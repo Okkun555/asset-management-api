@@ -2,6 +2,7 @@
 
 namespace App\Domain\Auth\Entity;
 
+use App\Domain\Common\Entity\BaseEntity;
 use App\Domain\Auth\ValueObject\UserName;
 use App\Domain\Common\ValueObject\Email;
 use App\Domain\Common\ValueObject\Id;
@@ -19,15 +20,15 @@ class Account extends BaseEntity
     private Password $password;
 
     /**
-     * @param Id $id
+     * @param Id | null $id
      * @param Email $email
      * @param UserName $name
      * @param Password $password
      * @return void
      */
-    private function __constructor(Id $id, Email $email, UserName $name, Password $password): void
+    private function __construct(?Id $id, UserName $name, Email $email, Password $password)
     {
-        parent::__constructor($id);
+        parent::__construct($id);
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
@@ -63,10 +64,10 @@ class Account extends BaseEntity
     }
 
     /**
-     * @return Password
+     * @return string
      */
-    public function getPassword(): Password
+    public function getPassword(): string
     {
-        return $this->password;
+        return $this->password->value();
     }
 }

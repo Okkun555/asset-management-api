@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Responder;
 
 use App\Usecases\BaseDto;
 use Illuminate\Http\JsonResponse;
 
-class ApiResponse
+class ApiResponder
 {
     /**
      * @param BaseDto $data
@@ -24,9 +24,7 @@ class ApiResponse
 
         return response()->json([
             'status' => true,
-            'data' => [
-
-            ]
+            'data' => $data->convertResponse(),
         ]);
     }
 
