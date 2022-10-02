@@ -20,4 +20,12 @@ class Email
         }
         $this->emailAddress = $emailAddress;
     }
+
+    /**
+     * @return string
+     */
+    public function value(): string
+    {
+        return $this->emailAddress;
+    }
 }

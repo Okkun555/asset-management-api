@@ -26,7 +26,7 @@ class Id
     /**
      * @return int
      */
-    public function getId(): int
+    public function value(): int
     {
         return $this->id;
     }
