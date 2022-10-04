@@ -9,7 +9,7 @@ interface IAccountRepository
 {
     /**
      * @param Account $account
-     * @return Id|false
+     * @return Id|bool
      */
-    public function add(Account $account): Id|false;
+    public function add(Account $account): Id|bool;
 }

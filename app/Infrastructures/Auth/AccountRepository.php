@@ -20,10 +20,10 @@ class AccountRepository implements IAccountRepository
 
     /**
      * @param Account $account
-     * @return Id|false
+     * @return Id|bool
      * @throws Exception
      */
-    public function add(Account $account): Id|false
+    public function add(Account $account): Id|bool
     {
         if ($account->hasId()) {
             throw new Exception('不正なメソッド呼び出し');

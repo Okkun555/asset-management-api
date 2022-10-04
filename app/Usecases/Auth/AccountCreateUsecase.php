@@ -37,6 +37,7 @@ class AccountCreateUsecase
             DB::commit();
 
             if (!$id) {
+                DB::rollBack();
                 return AccountCreateUsecaseDto::failed(new AuthError('アカウント作成に失敗しました'));
             }
 
